@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form id="arithmeticForm">
+      <h3>Basic Arithmetic Function</h3>
+      <div class="in">
+        <input type="text" name="first" id="first" placeholder="operand 1" />
+      </div>
+
+      <div class="in">
+        <input type="text" name="second" id="second" placeholder="operand 2" />
+      </div>
+
+      <div class="btn">
+        <button type="submit" onclick="add()">Add</button>
+        <button type="submit" onclick="sub()">Sub</button>
+        <button type="submit" onclick="div()">Div</button>
+        <button type="submit" onclick="mul()">Mul</button>
+        <button type="submit" onclick="mod()">Mod</button>
+      </div>
+    </form>
+
+    <div class="result">
+      <h3>Result:</h3>
+      <span id="result" ></span>
+    </div>
+
+    <script>
+
+    document.getElementById("arithmeticForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Handle form submission here
+        });
+      function add() {
+        let firstNum = parseInt(document.getElementById("first").value);
+        let secondNum = parseInt(document.getElementById("second").value);
+
+        if (!isNaN(firstNum) && !isNaN(secondNum)) {
+          let result = firstNum + secondNum;
+          document.getElementById("result").innerText = result.toString();
+        } else {
+          document.getElementById("result").innerText = "Invalid input";
+        }
+      }
+
+      function sub() {
+        let firstNum = parseInt(document.getElementById("first").value);
+        let secondNum = parseInt(document.getElementById("second").value);
+
+        if (!isNaN(firstNum) && !isNaN(secondNum)) {
+          let result = firstNum - secondNum;
+          document.getElementById("result").innerText = result.toString();
+        } else {
+          document.getElementById("result").innerText = "Invalid input";
+        }
+      }
+
+      function div() {
+        let firstNum = parseInt(document.getElementById("first").value);
+        let secondNum = parseInt(document.getElementById("second").value);
+
+        if (!isNaN(firstNum) && !isNaN(secondNum)) {
+          let result = firstNum / secondNum;
+          document.getElementById("result").innerText = result.toString();
+        } else {
+          document.getElementById("result").innerText = "Invalid input";
+        }
+      }
+
+      function mul() {
+        let firstNum = parseInt(document.getElementById("first").value);
+        let secondNum = parseInt(document.getElementById("second").value);
+
+        if (!isNaN(firstNum) && !isNaN(secondNum)) {
+          let result = firstNum * secondNum;
+          document.getElementById("result").innerText = result.toString();
+        } else {
+          document.getElementById("result").innerText = "Invalid input";
+        }
+      }
+
+      function mod() {
+        let firstNum = parseInt(document.getElementById("first").value);
+        let secondNum = parseInt(document.getElementById("second").value);
+
+        if (!isNaN(firstNum) && !isNaN(secondNum)) {
+          let result = firstNum % secondNum;
+          document.getElementById("result").innerText = result.toString();
+        } else {
+          document.getElementById("result").innerText = "Invalid input";
+        }
+      }
+    </script>
+  </body>
+</html>
