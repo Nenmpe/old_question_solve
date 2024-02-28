@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Continuous Time Display (12-hour Format)</title>
+</head>
+
+<body>
+    <div id="clock"></div>
+
+    <script>
+        function updateClock() {
+            var currentTime = new Date();
+            var hours = currentTime.getHours();
+            var minutes = currentTime.getMinutes();
+            var seconds = currentTime.getSeconds();
+
+            // Determine AM or PM
+            var amPm = (hours >= 12) ? "PM" : "AM";
+
+            // Convert to 12-hour format
+            hours = (hours > 12) ? hours - 12 : hours;
+            hours = (hours === 0) ? 12 : hours;
+
+            // Add leading zero if minutes or seconds are less than 10
+            minutes = (minutes < 10) ? "0" + minutes : minutes;
+            seconds = (seconds < 10) ? "0" + seconds : seconds;
+            hours = (hours < 10) ? "0" + hours : hours;
+
+            var timeString = hours + ":" + minutes + ":" + seconds + " " + amPm;
+
+            document.getElementById("clock").innerText = timeString;
+        }
+
+        // Update the clock every second
+        setInterval(updateClock, 1000);
+
+        // Initial call to display the time immediately
+        updateClock();
+    </script>
+</body>
+
+</html>
