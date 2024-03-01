@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        button{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <form class="form">
+        <table border="1">
+            <tr>
+                <th colspan="3"><input type="text" name="in" id="inout"></th>
+                <th><button type="reset" onclick="clearInput()">C</button></th>
+            </tr>
+
+            <tr>
+                <td><button onclick="appendToInput('1')">1</button></td>
+                <td><button onclick="appendToInput('2')">2</button></td>
+                <td><button onclick="appendToInput('3')">3</button></td>
+                <td><button onclick="appendToInput('+')">+</button></td>
+            </tr>
+
+            <tr>
+                <td><button onclick="appendToInput('4')">4</button></td>
+                <td><button onclick="appendToInput('5')">5</button></td>
+                <td><button onclick="appendToInput('6')">6</button></td>
+                <td><button onclick="appendToInput('-')">-</button></td>
+            </tr>
+
+            <tr>
+                <td><button onclick="appendToInput('7')">7</button></td>
+                <td><button onclick="appendToInput('8')">8</button></td>
+                <td><button onclick="appendToInput('9')">9</button></td>
+                <td><button onclick="appendToInput('10')">10</button></td>
+            </tr>
+
+            <tr>
+                <td><button onclick="appendToInput('0')">0</button></td>
+                <td><button onclick="appendToInput('*')">*</button></td>
+                <td><button onclick="appendToInput('.')">.</button></td>
+                <td><button type="button" onclick="calculate()">=</button></td>
+            </tr>
+        </table>
+    </form>
+
+    <script>
+        document.querySelector(".form").addEventListener("submit",function(e){
+            e.preventDefault();
+        });
+        
+        function appendToInput(value) {
+            document.getElementById('inout').value += value;
+        }
+
+        function clearInput() {
+            document.getElementById('inout').value = '';
+        }
+
+        function calculate() {
+            var input = document.getElementById('inout').value;
+            var result = eval(input); // Using eval is not recommended in production due to security risks.
+            document.getElementById('inout').value = result;
+        }
+      
+    </script>
+
+</body>
+</html>
